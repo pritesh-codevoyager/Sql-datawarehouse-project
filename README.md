@@ -1,92 +1,124 @@
-📊 End-to-End Data Warehouse Project (Bronze → Silver → Gold)
-🚀 Project Summary
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:667eea,100:764ba2&height=200&section=header&text=Data%20Warehouse%20Project&fontSize=35&fontColor=ffffff&animation=fadeIn" />
+</p>
 
-This project demonstrates the implementation of a modern data warehouse pipeline using the Medallion Architecture (Bronze, Silver, Gold layers).
+<p align="center">
 
-The solution processes raw CRM and ERP data, transforms it into clean and structured datasets, and finally builds a business-ready analytical model for reporting and insights.
+<img src="https://img.shields.io/badge/SQL-Server-blue?style=for-the-badge&logo=microsoftsqlserver"/>
+<img src="https://img.shields.io/badge/Data%20Warehouse-Medallion%20Architecture-purple?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/ETL-Pipeline-green?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/PowerBI-Dashboard-yellow?style=for-the-badge&logo=powerbi"/>
+<img src="https://img.shields.io/github/stars/your-username/your-repo?style=for-the-badge"/>
+<img src="https://img.shields.io/github/forks/your-username/your-repo?style=for-the-badge"/>
 
-🏗️ Architecture Overview
-Bronze Layer  →  Silver Layer  →  Gold Layer
- Raw Data        Clean Data       Business Ready Data
-🥉 Bronze Layer – Raw Data
-📌 Description
+</p>
 
-The Bronze layer stores raw, unprocessed data directly from source systems. No transformations are applied at this stage.
+# 📊 End-to-End Data Warehouse Project
 
-📂 Tables
-crm_cust_info
-crm_prd_info
-crm_sales_details
-erp_loc_a101
-erp_cust_az12
-erp_px_cat_g1v2
-⚙️ Key Characteristics
-Stores original source data
-Maintains data history
-Minimal validation
-Supports traceability and debugging
-🥈 Silver Layer – Cleaned & Transformed Data
-📌 Description
+### 🥉 Bronze → 🥈 Silver → 🥇 Gold Architecture
 
-The Silver layer performs data cleaning, transformation, and standardization to improve data quality and usability.
+---
 
-🔄 Transformations Applied
-Removed duplicates using ROW_NUMBER()
-Trimmed and standardized text (TRIM, UPPER)
-Converted raw date formats into DATE
-Standardized categorical values:
-Gender (M/F → Male/Female)
-Marital Status (S/M → Single/Married)
-Handled missing and invalid data
-Recalculated incorrect sales values
-Implemented Slowly Changing Dimension (SCD Type 2) using LEAD()
-📂 Tables
-crm_cust_info
-crm_prd_info
-crm_sales_details
-erp_loc_a101
-erp_cust_az12
-erp_px_cat_g1v2
-🥇 Gold Layer – Business-Ready Data
-📌 Description
+## 🚀 Project Summary
 
-The Gold layer contains modeled and aggregated data optimized for reporting, dashboards, and business intelligence tools.
+This project demonstrates the implementation of a **modern data warehouse pipeline** using the **Medallion Architecture (Bronze, Silver, Gold layers)**.
 
-⭐ Data Model (Star Schema)
-🔹 Dimension Tables
-dim_customer
-dim_product
-dim_location
-🔹 Fact Table
-fact_sales
-📊 Business Use Cases
-Sales performance analysis
-Customer segmentation
-Product category insights
-Regional sales trends
-KPI reporting
-🛠️ Tech Stack
-SQL Server (T-SQL)
-Data Warehousing Concepts
-ETL Pipeline Design
-Power BI (for visualization)
-🔍 Key Concepts Demonstrated
-Medallion Architecture (Bronze → Silver → Gold)
-Data Cleaning & Transformation
-Window Functions (ROW_NUMBER, LEAD)
-Data Quality Handling
-Slowly Changing Dimensions (SCD Type 2)
-Star Schema Modeling
-▶️ How to Run This Project
-1️⃣ Create Schemas
-CREATE SCHEMA bronze;
-CREATE SCHEMA silver;
-CREATE SCHEMA gold;
-2️⃣ Execute Scripts in Order
-Run Bronze Layer scripts (table creation + data load)
-Run Silver Layer scripts (cleaning & transformation)
-Run Gold Layer scripts (data modeling)
-📁 Project Structure
+The solution processes raw CRM and ERP data, transforms it into clean and structured datasets, and builds a **business-ready analytical model** for reporting and insights.
+
+---
+
+## 🏗️ Architecture
+
+```mermaid
+flowchart LR
+    A[Bronze Layer - Raw Data] --> B[Silver Layer - Clean Data]
+    B --> C[Gold Layer - Business Ready Data]
+```
+
+---
+
+## 🥉 Bronze Layer – Raw Data
+
+📌 Stores raw, unprocessed data directly from source systems
+📂 Tables:
+
+* crm_cust_info
+* crm_prd_info
+* crm_sales_details
+* erp_loc_a101
+* erp_cust_az12
+* erp_px_cat_g1v2
+
+⚙️ Key Features:
+
+* Original data preserved
+* Minimal validation
+* Supports traceability
+
+---
+
+## 🥈 Silver Layer – Cleaned & Transformed Data
+
+📌 Data cleaning, transformation, and standardization
+
+🔄 Transformations Applied:
+
+* Removed duplicates using `ROW_NUMBER()`
+* Trimmed and standardized text (`TRIM`, `UPPER`)
+* Converted raw date formats into `DATE`
+* Standardized categorical values
+* Handled null and invalid data
+* Recalculated incorrect sales values
+* Implemented **SCD Type 2** using `LEAD()`
+
+📂 Tables:
+
+* crm_cust_info
+* crm_prd_info
+* crm_sales_details
+* erp_loc_a101
+* erp_cust_az12
+* erp_px_cat_g1v2
+
+---
+
+## 🥇 Gold Layer – Business Ready Data
+
+📌 Modeled and optimized for analytics and reporting
+
+⭐ Star Schema:
+
+**Dimension Tables**
+
+* dim_customer
+* dim_product
+* dim_location
+
+**Fact Table**
+
+* fact_sales
+
+📊 Use Cases:
+
+* Sales analysis
+* Customer segmentation
+* Product insights
+* KPI dashboards
+
+---
+
+## 🛠️ Tech Stack
+
+* SQL Server (T-SQL)
+* Data Warehousing
+* ETL Pipeline
+* Power BI
+
+---
+
+## 📁 Project Structure
+
+```bash
 project/
 │
 ├── bronze/
@@ -100,4 +132,62 @@ project/
 │   ├── dim_tables.sql
 │   ├── fact_tables.sql
 │
+├── assets/
+│   ├── dashboard.png
+│
 ├── README.md
+```
+
+---
+
+## ▶️ How to Run
+
+```sql
+CREATE SCHEMA bronze;
+CREATE SCHEMA silver;
+CREATE SCHEMA gold;
+```
+
+1. Run Bronze scripts
+2. Run Silver scripts
+3. Run Gold scripts
+
+---
+
+## 📊 Dashboard Preview
+
+<p align="center">
+  <img src="assets/dashboard.png" width="700"/>
+</p>
+
+---
+
+## 🔮 Future Improvements
+
+* Incremental loading
+* Performance optimization
+* Cloud deployment (Azure/AWS)
+* Real-time pipelines
+
+---
+
+## 👨‍💻 Author
+
+**Pritesh Raj**
+Aspiring Data Analyst / Data Engineer
+
+---
+
+## ⭐ Support
+
+If you like this project:
+
+* ⭐ Star the repo
+* 🍴 Fork it
+* 🤝 Contribute
+
+---
+
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:764ba2,100:667eea&height=120&section=footer"/>
+</p>
